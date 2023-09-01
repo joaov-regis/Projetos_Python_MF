@@ -1,7 +1,7 @@
 # Importar bibliotecas utilizadas
 
 import matplotlib.pyplot as plt
-
+import mplcyberpunk
 
 # Definir variáveis para cálculo
 capitalInicial = 100000
@@ -23,6 +23,9 @@ anos = list(range(periodosLista))
 montantes = [calculaMontante(capitalInicial, taxaJuros, periodo) for periodo in anos]
 print(montantes)
 
+# Personalizar tema do gráfico
+plt.style.use("cyberpunk")
+
 # Definir quais informações serão mostradas no gráfico
 plt.plot(anos, montantes)
 plt.xlabel("Anos")
@@ -31,12 +34,6 @@ plt.title("Juros Compostos")
 ax = plt.gca()
 ax.ticklabel_format(style='plain', axis='both')
 
-# Personalizar tema do gráfico
-plt.gca().set_facecolor('#2c2c2c')
-plt.gca().spines['top'].set_visible(False)
-plt.gca().spines['right'].set_visible(False)
-plt.gca().spines['bottom'].set_color('white')
-plt.gca().spines['left'].set_color('white')
 
 # Mostrar gráfico com cálculo
 plt.show()
